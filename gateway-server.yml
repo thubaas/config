@@ -1,0 +1,41 @@
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://eurekaserver:8070/eureka/
+      
+spring: 
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false # disables automatic mapping of routes, i.e only manual mapping left
+          lower-case-service-id: true
+      routes:
+      - id: organization-service
+        uri: lb://organization-service
+        predicates:
+        - Path=/organization/**
+        filters:
+        - RewritePath=/organization/(?<path>.*), /$\{path}
+        
+      - id: licensing-service
+        uri: lb://licensing-service
+        predicates:
+        - Path=/license/**
+        filters:
+        - RewritePath=/license/(?<path>.*), /$\{path}   
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+        
+        

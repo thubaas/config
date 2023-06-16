@@ -1,0 +1,10 @@
+example.property: I AM PROD
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://eurekaserver:8070/eureka/
