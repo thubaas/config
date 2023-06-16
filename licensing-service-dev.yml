@@ -1,14 +1,5 @@
 example.property: I AM DEV
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      default-zone: http://eurekaserver:8070/eureka/
-
 spring.datasource.url: "jdbc:postgresql://localhost:5432/mia_dev"
 spring.datasource.username: "tsdev"
 spring.datasource.password: "orion"
