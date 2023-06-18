@@ -9,7 +9,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      default-zone: http://eurekaserver:8070/eureka/
+      default-zone: http://eurekaserver:8761/eureka/
 
 spring.jpa.hibernate.ddl-auto: none
 spring.jpa.database: POSTGRESQL
